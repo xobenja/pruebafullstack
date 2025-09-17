@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Tienda Online</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo" onclick="showPage('home')">🛒 TechStore</a>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')">Inicio</a></li>
+                <li><a href="#" onclick="showPage('products')">Productos</a></li>
+                <li><a href="#" onclick="showPage('blogs')">Blog</a></li>
+                <li><a href="#" onclick="showPage('about')">Nosotros</a></li>
+                <li><a href="#" onclick="showPage('contact')">Contacto</a></li>
+                <li><a href="#" onclick="showPage('login')">Login</a></li>
+                <li><a href="#" onclick="showPage('register')">Registro</a></li>
+                <li><a href="#" onclick="showPage('admin')">Admin</a></li>
+            </ul>
+            <button class="cart-btn" onclick="openCart()">
+                🛒 Carrito
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- HOME PAGE -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <h1>Bienvenido a TechStore</h1>
+                <p>Los mejores productos tecnológicos al mejor precio</p>
+                <a href="#" class="btn" onclick="showPage('products')">Ver Productos</a>
+            </section>
+
+            <h2 class="section-title">Productos Destacados</h2>
+            <div class="products-grid" id="featuredProducts">
+                <!-- Los productos se cargan dinámicamente -->
+            </div>
+        </div>
+
+        <!-- PRODUCTS PAGE -->
+        <div id="products" class="page">
+            <h2 class="section-title">Todos los Productos</h2>
+            <div class="products-grid" id="allProducts">
+                <!-- Los productos se cargan dinámicamente -->
+            </div>
+        </div>
+
+        <!-- PRODUCT DETAIL PAGE -->
+        <div id="productDetail" class="page">
+            <div id="productDetailContent">
+                <!-- El detalle del producto se carga dinámicamente -->
+            </div>
+        </div>
+
+        <!-- REGISTER PAGE -->
+        <div id="register" class="page">
+            <div class="form-container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Registro de Usuario</h2>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerRun">RUN:</label>
+                        <input type="text" id="registerRun" name="run" placeholder="Ej: 12345678K">
+                        <div class="error-message" id="registerRunError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerName">Nombre:</label>
+                        <input type="text" id="registerName" name="name" placeholder="Ingresa tu nombre">
+                        <div class="error-message" id="registerNameError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerLastName">Apellidos:</label>
+                        <input type="text" id="registerLastName" name="lastName" placeholder="Ingresa tus apellidos">
+                        <div class="error-message" id="registerLastNameError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email:</label>
+                        <input type="email" id="registerEmail" name="email" placeholder="correo@ejemplo.com">
+                        <div class="error-message" id="registerEmailError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerBirth">Fecha de Nacimiento:</label>
+                        <input type="date" id="registerBirth" name="birth">
+                    </div>
+                    <div class="form-group">
+                        <label for="registerRegion">Región:</label>
+                        <select id="registerRegion" name="region">
+                            <option value="">Selecciona una región</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerCommune">Comuna:</label>
+                        <select id="registerCommune" name="commune">
+                            <option value="">Selecciona una comuna</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerAddress">Dirección:</label>
+                        <input type="text" id="registerAddress" name="address" placeholder="Tu dirección completa">
+                        <div class="error-message" id="registerAddressError"></div>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Registrarse</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- LOGIN PAGE -->
+        <div id="login" class="page">
+            <div class="form-container">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <div class="logo" style="font-size: 3rem; margin-bottom: 1rem;">🛒</div>
+                    <h2>TechStore</h2>
+                    <p>Iniciar Sesión</p>
+                </div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email:</label>
+                        <input type="email" id="loginEmail" name="email" placeholder="correo@ejemplo.com">
+                        <div class="error-message" id="loginEmailError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Contraseña:</label>
+                        <input type="password" id="loginPassword" name="password" placeholder="Tu contraseña">
+                        <div class="error-message" id="loginPasswordError"></div>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Ingresar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="about" class="page">
+            <h2 class="section-title">Sobre Nosotros</h2>
+            <div class="about-content">
+                <h3>TechStore - Tu tienda tecnológica de confianza</h3>
+                <p>Somos una empresa dedicada a ofrecer los mejores productos tecnológicos del mercado. Con más de 10 años de experiencia, nos hemos convertido en la opción preferida de miles de clientes que buscan calidad, precio y excelente servicio.</p>
+                
+                <h4>Nuestra Misión</h4>
+                <p>Democratizar el acceso a la tecnología, ofreciendo productos de alta calidad a precios competitivos, con un servicio al cliente excepcional.</p>
+                
+                <h4>Equipo de Desarrollo</h4>
+                <p><strong>Desarrolladores:</strong></p>
+                <ul>
+                    <li>Juan Pérez - Full Stack Developer</li>
+                    <li>María González - Frontend Developer</li>
+                    <li>Carlos Rodríguez - Backend Developer</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- BLOGS PAGE -->
+        <div id="blogs" class="page">
+            <h2 class="section-title">Blog y Noticias</h2>
+            <div class="blog-grid">
+                <div class="blog-card" onclick="showBlogDetail(1)">
+                    <div class="blog-image">📱</div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Las últimas tendencias en smartphones 2024</h3>
+                        <p class="blog-excerpt">Descubre cuáles son las características más innovadoras que están definiendo el futuro de los teléfonos móviles...</p>
+                    </div>
+                </div>
+                <div class="blog-card" onclick="showBlogDetail(2)">
+                    <div class="blog-image">💻</div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Cómo elegir la laptop perfecta para trabajo remoto</h3>
+                        <p class="blog-excerpt">Guía completa para seleccionar el equipo ideal que se adapte a tus necesidades de teletrabajo...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOG DETAIL PAGE -->
+        <div id="blogDetail" class="page">
+            <div id="blogDetailContent">
+                <!-- El contenido del blog se carga dinámicamente -->
+            </div>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div id="contact" class="page">
+            <h2 class="section-title">Contactanos</h2>
+            <div class="form-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="contactName">Nombre:</label>
+                        <input type="text" id="contactName" name="name" placeholder="Tu nombre completo">
+                        <div class="error-message" id="contactNameError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Email:</label>
+                        <input type="email" id="contactEmail" name="email" placeholder="correo@ejemplo.com">
+                        <div class="error-message" id="contactEmailError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactComment">Comentario:</label>
+                        <textarea id="contactComment" name="comment" rows="5" placeholder="Escribe tu mensaje aquí..."></textarea>
+                        <div class="error-message" id="contactCommentError"></div>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ADMIN PAGE -->
+        <div id="admin" class="page">
+            <div class="admin-container">
+                <aside class="admin-sidebar">
+                    <h3>Panel de Administración</h3>
+                    <ul class="admin-menu">
+                        <li><a href="#" class="active" onclick="showAdminSection('adminHome')">Dashboard</a></li>
+                        <li><a href="#" onclick="showAdminSection('adminUsers')">Usuarios</a></li>
+                        <li><a href="#" onclick="showAdminSection('adminProducts')">Productos</a></li>
+                    </ul>
+                </aside>
+                <div class="admin-content">
+                    <div id="adminHome" class="admin-section active">
+                        <h2>Bienvenido al Panel de Administración</h2>
+                        <p>Desde aquí puedes gestionar usuarios y productos de tu tienda.</p>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                            <div style="background: #667eea; color: white; padding: 2rem; border-radius: 15px; text-align: center;">
+                                <h3>Usuarios</h3>
+                                <p style="font-size: 2rem; font-weight: bold;" id="totalUsers">0</p>
+                            </div>
+                            <div style="background: #764ba2; color: white; padding: 2rem; border-radius: 15px; text-align: center;">
+                                <h3>Productos</h3>
+                                <p style="font-size: 2rem; font-weight: bold;" id="totalProducts">0</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="adminUsers" class="admin-section">
+                        <h2>Gestión de Usuarios</h2>
+                        <button class="btn" onclick="showUserForm()">Nuevo Usuario</button>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>RUN</th>
+                                        <th>Nombre</th>
+                                        <th>Email</th>
+                                        <th>Tipo</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="usersTable">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="adminProducts" class="admin-section">
+                        <h2>Gestión de Productos</h2>
+                        <button class="btn" onclick="showProductForm()">Nuevo Producto</button>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th>Stock</th>
+                                        <th>Categoría</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="productsTable">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- User Form -->
+                    <div id="userForm" class="admin-section">
+                        <h2 id="userFormTitle">Nuevo Usuario</h2>
+                        <form id="adminUserForm">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div class="form-group">
+                                    <label for="adminUserRun">RUN:</label>
+                                    <input type="text" id="adminUserRun" name="run" placeholder="12345678K">
+                                    <div class="error-message" id="adminUserRunError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminUserType">Tipo de Usuario:</label>
+                                    <select id="adminUserType" name="userType">
+                                        <option value="">Selecciona tipo</option>
+                                        <option value="administrador">Administrador</option>
+                                        <option value="vendedor">Vendedor</option>
+                                        <option value="cliente">Cliente</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminUserName">Nombre:</label>
+                                    <input type="text" id="adminUserName" name="name">
+                                    <div class="error-message" id="adminUserNameError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminUserLastName">Apellidos:</label>
+                                    <input type="text" id="adminUserLastName" name="lastName">
+                                    <div class="error-message" id="adminUserLastNameError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminUserEmail">Email:</label>
+                                    <input type="email" id="adminUserEmail" name="email">
+                                    <div class="error-message" id="adminUserEmailError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminUserBirth">Fecha de Nacimiento:</label>
+                                    <input type="date" id="adminUserBirth" name="birth">
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminUserRegion">Región:</label>
+                                    <select id="adminUserRegion" name="region"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminUserCommune">Comuna:</label>
+                                    <select id="adminUserCommune" name="commune"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="adminUserAddress">Dirección:</label>
+                                <input type="text" id="adminUserAddress" name="address">
+                                <div class="error-message" id="adminUserAddressError"></div>
+                            </div>
+                            <div style="display: flex; gap: 1rem;">
+                                <button type="submit" class="btn">Guardar</button>
+                                <button type="button" class="btn" style="background: #666;" onclick="showAdminSection('adminUsers')">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Product Form -->
+                    <div id="productForm" class="admin-section">
+                        <h2 id="productFormTitle">Nuevo Producto</h2>
+                        <form id="adminProductForm">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div class="form-group">
+                                    <label for="adminProductCode">Código:</label>
+                                    <input type="text" id="adminProductCode" name="code">
+                                    <div class="error-message" id="adminProductCodeError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminProductCategory">Categoría:</label>
+                                    <select id="adminProductCategory" name="category">
+                                        <option value="">Selecciona categoría</option>
+                                        <option value="smartphones">Smartphones</option>
+                                        <option value="laptops">Laptops</option>
+                                        <option value="tablets">Tablets</option>
+                                        <option value="accesorios">Accesorios</option>
+                                    </select>
+                                    <div class="error-message" id="adminProductCategoryError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminProductName">Nombre:</label>
+                                    <input type="text" id="adminProductName" name="name">
+                                    <div class="error-message" id="adminProductNameError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminProductPrice">Precio:</label>
+                                    <input type="number" id="adminProductPrice" name="price" min="0" step="0.01">
+                                    <div class="error-message" id="adminProductPriceError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminProductStock">Stock:</label>
+                                    <input type="number" id="adminProductStock" name="stock" min="0">
+                                    <div class="error-message" id="adminProductStockError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminProductCriticalStock">Stock Crítico:</label>
+                                    <input type="number" id="adminProductCriticalStock" name="criticalStock" min="0">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="adminProductDescription">Descripción:</label>
+                                <textarea id="adminProductDescription" name="description" rows="3"></textarea>
+                                <div class="error-message" id="adminProductDescriptionError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="adminProductImage">Imagen (URL):</label>
+                                <input type="url" id="adminProductImage" name="image">
+                            </div>
+                            <div style="display: flex; gap: 1rem;">
+                                <button type="submit" class="btn">Guardar</button>
+                                <button type="button" class="btn" style="background: #666;" onclick="showAdminSection('adminProducts')">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2>Carrito de Compras</h2>
+                <button onclick="closeCart()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">✕</button>
+            </div>
+            <div id="cartItems">
+                <!-- Los items del carrito se cargan dinámicamente -->
+            </div>
+            <div style="border-top: 2px solid #e0e0e0; padding-top: 1rem; margin-top: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <strong style="font-size: 1.2rem;">Total: $<span id="cartTotal">0</span></strong>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <button class="btn" onclick="checkout()" style="flex: 1;">Finalizar Compra</button>
+                    <button class="btn" onclick="clearCart()" style="background: #ff4757; flex: 1;">Vaciar Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 TechStore. Todos los derechos reservados.</p>
+            <p>Desarrollado por el equipo de DSY1104</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
