@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios Registrados</title>
+    <link rel="stylesheet" href="usuarios.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../IndexAdministrador/indexAdministrador.html" class="volver">Volver</a>
+            <h1>Usuarios Registrados</h1>
+            <button id="btn-nuevo" class="btn-nuevo">➕ Nuevo Usuario</button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="tabla-container">
+            <table class="usuarios-tabla">
+                <thead>
+                    <tr>
+                        <th>RUN</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Correo</th>
+                        <th>Fecha Nac.</th>
+                        <th>Contraseña</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="usuarios-body">
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="usuarios.js"></script>
+</body>
+</html>

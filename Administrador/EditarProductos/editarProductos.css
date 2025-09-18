@@ -1,0 +1,212 @@
+.productos {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 16px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+
+.filtros {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.filtros input[type="search"],
+.filtros select {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font: inherit;
+}
+
+.grid-productos {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.12);
+}
+
+.product-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.product-card .info {
+  padding: 12px 14px;
+  flex: 1;
+}
+.product-card h3 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+  color: #222;
+}
+.product-card .desc {
+  margin: 0 0 6px;
+  color: #555;
+  font-size: .95rem;
+}
+.product-card .precio {
+  margin: 6px 0 0;
+  font-weight: 700;
+  color: #ff2600;
+}
+
+.product-card .btn-edit,
+.product-card .btn-del {
+  display:inline-block;
+  padding:12px 20px;
+  background: linear-gradient(135deg,#ff1904,#ff2600);
+  color:#fff;
+  font-weight:700;
+  border-radius:8px;
+  border: none;
+  margin: 10px 14px 14px;
+  text-decoration:none;
+  transition: opacity .2s, transform .15s;
+}
+
+
+.btn-edit:hover{ opacity:.9; transform: translateY(-1px); }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px; /* espacio en móviles */
+  z-index: 999;
+  box-sizing: border-box;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 480px;
+  padding: 5%;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 4%;
+  box-sizing: border-box;
+  animation: aparecer 0.25s ease;
+}
+
+.modal-content h2 {
+  font-size: 1.4rem; /* proporcional al contenedor */
+  font-weight: 700;
+  text-align: center;
+  color: #222;
+  margin: 0 0 1em 0;
+}
+
+/* Inputs y textarea proporcionales */
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 1em;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus {
+  border-color: #0077ff;
+  box-shadow: 0 0 0 3px rgba(0,119,255,0.2);
+}
+
+/* Imagen preview proporcional */
+.modal-content .preview {
+  width: 100%;
+  max-height: 30vh; /* proporcional a la ventana */
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 0.5em;
+  border: 1px solid #eee;
+}
+
+/* Botones proporcionales */
+.modal-content .acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.modal-content button {
+  padding: 0.8em 1.6em;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+#guardar {
+  background-color: #0077ff;
+  color: white;
+}
+#guardar:hover {
+  background-color: #005ecc;
+}
+
+#cancelar {
+  background-color: #f0f0f0;
+  color: #333;
+}
+#cancelar:hover {
+  background-color: #e0e0e0;
+}
+
+/* Animación modal */
+@keyframes aparecer {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive completo */
+@media (max-width: 500px) {
+  .modal-content {
+    padding: 6%;
+  }
+  .modal-content h2 {
+    font-size: 1.2rem;
+  }
+  .modal-content input,
+  .modal-content textarea {
+    padding: 0.8em;
+    font-size: 0.95rem;
+  }
+  .modal-content button {
+    padding: 0.7em 1.2em;
+    font-size: 0.95rem;
+  }
+}
+
+

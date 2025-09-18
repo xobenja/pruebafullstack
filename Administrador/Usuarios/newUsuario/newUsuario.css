@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #222;
+}
+
+body {
+    background: linear-gradient(135deg, #ff1500, #f80101);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login, 
+.registro {
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 15px;
+    width: 350px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.titulo {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: #ff6f61;
+}
+
+form h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.grupo-input {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.grupo-input label {
+    font-size: 14px;
+    color: #444;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.grupo-input input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.grupo-input input:focus {
+    border-color: #ff6f61;
+    outline: none;
+}
+
+.boton,
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #ff6f61;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.boton:hover,
+.btn:hover {
+    background: #e14e4e;
+}
+
+.registrate, 
+.iniciar {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.registrate a,
+.iniciar a {
+    color: #ff6f61;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.registrate a:hover,
+.iniciar a:hover {
+    text-decoration: underline;
+}

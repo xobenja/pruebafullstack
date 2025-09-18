@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WallEat</title>
+    <link rel="icon" href="../../img/logo.png" type="imagenes/png">
+    <link rel="stylesheet" href="iniciarSesion.css">
+
+
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../Index/index.html" title="enlace a la 2da Pag."> Volver</a>
+        </nav>
+    </header>
+<!---------------------------------------------------------------------------------/-->
+    <button class="boton" id="boton">☰</button>
+    <nav class="navegacion" id="navegacion">
+        <a href="../Index/index.html">Menu principal</a>
+        <a href="../Registrarse/registrarse.html"> Registrarse</a>
+        <a href="../Productos/productos.html">Productos</a>
+        <a href="../Contacto/contacto.html">Contacto</a>
+        <a href="../Nosotros/nosotros.html">Nosotros</a>
+        <a href="../Blogs/blogs.html">Blogs</a>
+        
+    </nav>
+<!---------------------------------------------------------------------------------/-->
+    <main>
+        <div class="login">
+            <h1 class="titulo">WallEat</h1>
+            <form action="../../Home2/home2.html" method="get" class="iniciar-sesion"> 
+                <h2>Iniciar Sesión</h2>
+                <div class="input-group">
+                    <label for="email">Correo Electronico</label>
+                    <input type="email" id="email" name="email" placeholder="TuCorreo@Eleccion.com" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="********" required minlength="8">
+                </div>
+                <button type="submit" class="btn">Ingresar</button>
+                <p class="registrate">
+                    ¿No tienes cuenta? <a href="../Registrarse/registrarse.html">Regístrate</a>
+                </p>
+            </form>
+        </div>
+    </main>
+    <script src="iniciarSesion.js"></script>
+    <script src="../Index/index.js"></script>
+</body>
+</html>

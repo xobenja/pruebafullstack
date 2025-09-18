@@ -1,0 +1,27 @@
+
+/* Contenasdaedor dasdel formularasdio */
+.content form{
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 16px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 2px;
+    display: block;
+}
+
+input.error-input, textarea.error-input {
+    border: 2px solid red;
+}
+
+input.valid-input, textarea.valid-input {
+    border: 2px solid green;
+}
+
+

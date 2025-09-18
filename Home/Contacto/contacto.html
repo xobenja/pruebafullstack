@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - WallEat</title>
+    <link rel="stylesheet" href="../../Home/Index/index.css">
+    <link rel="stylesheet" href="contacto.css">
+</head>
+<body>
+    <header>
+        <h1>Contacto</h1>
+    </header>
+<!---------------------------------------------------------------------------------/-->
+    <button class="boton" id="boton">☰</button>
+    <nav class="navegacion" id="navegacion">
+        <a href="../Index/index.html">Menu principal</a>
+        <a href="../IniciarSesion/iniciarSesion.html">Iniciar sesión</a>
+        <a href="../Registrarse/registrarse.html"> Registrarse</a>
+        <a href="../Productos/productos.html">Productos</a>
+        <a href="../Nosotros/nosotros.html">Nosotros</a>
+        <a href="../Blogs/blogs.html">Blogs</a>
+        
+    </nav>
+<!---------------------------------------------------------------------------------/-->
+    <main class="content">
+        <section>
+            <h2>¿Cómo encontrarnos?</h2>
+            <p><strong>Dirección:</strong> Av. Principal 123, Buin, Chile</p>
+            <p><strong>Teléfono:</strong> +56 9 1234 5678</p>
+            <p><strong>Email:</strong> contacto@walleat.cl</p>
+        </section>
+
+        <section>
+        <h2>Formulario de contacto</h2>
+        <form id="contacto-form">
+
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre" required>
+    <span class="error" id="error-nombre"></span><br><br>
+
+    <label for="correo">Correo:</label><br>
+    <input type="text" id="correo" name="correo" required>
+    <span class="error" id="error-correo"></span><br><br>
+
+    <label for="mensaje">Mensaje:</label><br>
+    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+    <span class="error" id="error-mensaje"></span><br><br>
+
+    <button type="submit">Enviar</button>
+</form>
+
+        </section>
+    </main>
+
+    <script src="contacto.js" defer></script>
+    <script src="../Index/index.js" defer></script>
+</body>
+</html>
